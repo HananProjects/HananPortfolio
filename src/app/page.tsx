@@ -2,8 +2,10 @@
 
 import { motion, type Variants, AnimatePresence } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { FileTree, type FileNode } from "@/components/FileTree"
+import { PROJECTS } from "@/lib/projects"
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -97,56 +99,6 @@ const TECH_STACK = [
   { name: "FPGA (Intel)",  color: "oklch(0.60 0.18 310)", icon: "intel" },
 ]
 
-const PROJECTS = [
-  {
-    id: "project-0",
-    filename: "asl-translator.py",
-    name: "ASL Translator — Capstone",
-    period: "Sept 2025 – Apr 2026",
-    description:
-      "Real-time bidirectional ASL ↔ English translation system on Raspberry Pi 5. Fully offline operation with end-to-end latency under 2 seconds. Multi-threaded pipeline managing camera, microphone, display, and speaker subsystems concurrently.",
-    tech: ["Python", "C", "Raspberry Pi 5", "MediaPipe", "VOSK", "Linux"],
-    github: "#",
-    live: "#",
-    accent: "oklch(0.72 0.15 250)",
-  },
-  {
-    id: "project-1",
-    filename: "kawakraft.tsx",
-    name: "KawaKraft",
-    period: "2025",
-    description:
-      "Full-stack e-commerce platform with secure REST APIs for product management, authentication, and customer orders. Responsive UI built with Next.js and Tailwind CSS; version-controlled CI workflow via GitHub.",
-    tech: ["Django", "Next.js", "PostgreSQL", "Tailwind CSS", "REST API"],
-    github: "#",
-    live: "#",
-    accent: "oklch(0.60 0.15 150)",
-  },
-  {
-    id: "project-2",
-    filename: "microprocessor.v",
-    name: "8-bit Microprocessor",
-    period: "2024",
-    description:
-      "Modular 8-bit microprocessor in Verilog HDL with sequencer, instruction decoder, and ALU. Validated on Intel FPGA using Quartus synthesis and ModelSim functional simulation.",
-    tech: ["Verilog", "Intel FPGA", "Quartus", "ModelSim"],
-    github: "#",
-    live: "#",
-    accent: "oklch(0.65 0.16 290)",
-  },
-  {
-    id: "project-3",
-    filename: "travel-app.py",
-    name: "Travel Planning App",
-    period: "2024",
-    description:
-      "Django-based collaborative travel planning application with booking and reservation management backed by a relational database.",
-    tech: ["Django", "Python", "SQL"],
-    github: "#",
-    live: "#",
-    accent: "oklch(0.75 0.18 85)",
-  },
-]
 
 const TREE: FileNode[] = [
   {
@@ -218,10 +170,10 @@ function WindowChrome({
 
 function SectionHeader({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-2 mb-8">
-      <span className="font-mono text-xs text-muted-foreground/50">{"//"}</span>
-      <span className="font-mono text-sm text-muted-foreground">{label}</span>
-      <div className="flex-1 h-px bg-border/50 ml-2" />
+    <div className="flex items-center gap-2.5 mb-8">
+      <span className="font-mono text-sm font-bold text-primary">{"//"}</span>
+      <span className="font-mono text-sm font-semibold text-foreground/85 tracking-wide">{label}</span>
+      <div className="flex-1 h-px bg-border ml-1" />
     </div>
   )
 }
@@ -505,6 +457,8 @@ function TechStackSection() {
 }
 
 function ProjectsSection() {
+  const router = useRouter()
+
   return (
     <section className="px-6 py-28">
       <div className="max-w-2xl mx-auto">
@@ -524,6 +478,9 @@ function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
+                whileHover={{ y: -3 }}
+                onClick={() => router.push(`/projects/${project.slug}`)}
+                className="cursor-pointer group"
               >
                 <WindowChrome title={project.filename}>
                   <div className="p-5">
@@ -532,10 +489,15 @@ function ProjectsSection() {
                         <h3 className="font-mono font-medium text-foreground">{project.name}</h3>
                         <span className="text-xs font-mono text-muted-foreground/60">{project.period}</span>
                       </div>
-                      <div
-                        className="w-2 h-2 rounded-full shrink-0 mt-1.5"
-                        style={{ background: project.accent }}
-                      />
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs font-mono text-primary/0 group-hover:text-primary/50 transition-colors duration-150 select-none">
+                          view →
+                        </span>
+                        <div
+                          className="w-2 h-2 rounded-full shrink-0"
+                          style={{ background: project.accent }}
+                        />
+                      </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {project.description}
@@ -554,12 +516,14 @@ function ProjectsSection() {
                       <div className="flex gap-4 text-xs font-mono shrink-0 ml-4">
                         <a
                           href={project.github}
+                          onClick={(e) => e.stopPropagation()}
                           className="text-muted-foreground hover:text-foreground transition-colors duration-150"
                         >
                           github →
                         </a>
                         <a
                           href={project.live}
+                          onClick={(e) => e.stopPropagation()}
                           className="text-primary hover:text-primary/70 transition-colors duration-150"
                         >
                           live →
