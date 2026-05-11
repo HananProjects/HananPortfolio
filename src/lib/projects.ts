@@ -9,6 +9,9 @@ export type Project = {
   highlights: string[]
   tech: string[]
   images?: string[]
+  paper?: string
+  results?: { value: string; label: string }[]
+  resultsNote?: string
   github: string
   live: string
   accent: string
@@ -35,7 +38,7 @@ export const PROJECTS: Project[] = [
       "End-to-end latency under 2 seconds for real-time usability",
       "Dedicated UI interface for sign recognition and translation output",
     ],
-    tech: ["Python", "C", "Raspberry Pi 5", "MediaPipe", "VOSK"],
+    tech: ["Python", "Raspberry Pi 5", "MediaPipe", "VOSK"],
     images: [
       "/projects/asl-translator/620263E8-11D1-4002-A836-79034154EC8C_1_105_c.jpeg",
       "/projects/asl-translator/8DF5400D-FD8F-4ADF-8FF4-B703B379999C_1_105_c.jpeg",
@@ -69,7 +72,7 @@ export const PROJECTS: Project[] = [
       "CI workflow via GitHub Actions for automated linting and testing",
     ],
     tech: ["Django", "Next.js", "PostgreSQL", "Tailwind CSS", "REST API"],
-    github: "#",
+    github: "https://github.com/HananProjects/KawaKraft",
     live: "#",
     accent: "oklch(0.60 0.15 150)",
   },
@@ -96,6 +99,37 @@ export const PROJECTS: Project[] = [
     github: "#",
     live: "#",
     accent: "oklch(0.65 0.16 290)",
+  },
+  {
+    id: "project-4",
+    slug: "booth-multiplier",
+    filename: "booth-multiplier.v",
+    name: "Approximate Radix-4 Booth Multiplier",
+    period: "2024",
+    description:
+      "8-bit Verilog HDL multiplier designed to accelerate DNN workloads by approximating the least significant partial product columns — achieving ~12% area and ~11% power reduction with 95% last-layer inference accuracy.",
+    longDescription:
+      "An 8-bit approximate multiplier implemented in Verilog HDL, targeting efficient multiply-accumulate (MAC) operations in deep neural network inference. The design leverages the error-tolerance of DNN workloads: the five least significant partial product columns — where small numerical deviations have minimal impact on inference results — are replaced with a fixed '10000' pattern, significantly reducing hardware complexity. Upper bit precision is preserved to maintain acceptable accuracy.",
+    highlights: [
+      "Radix-4 Booth encoding for reduced partial product count compared to standard binary multiplication",
+      "Approximate lower partial product columns replaced with a fixed '10000' pattern to cut hardware",
+      "~12% area reduction and ~11% power reduction versus the exact baseline",
+      "95% last-layer accuracy and 84% overall sample accuracy on DNN inference benchmarks",
+      "Targets multiply-accumulate operations common in deep learning accelerators",
+      "Balances hardware efficiency with acceptable numerical error for inference-tolerant applications",
+    ],
+    tech: ["Verilog", "Quartus", "ModelSim"],
+    results: [
+      { value: "~12%", label: "Area savings" },
+      { value: "~11%", label: "Power savings" },
+      { value: "95%",  label: "Last-layer accuracy" },
+      { value: "84%",  label: "Overall sample accuracy" },
+    ],
+    resultsNote: "The design reduces area and power compared to exact Booth multiplication, while keeping the product accurate enough for inference-tolerant workloads.",
+    paper: "/projects/booth-multiplier/Approximate-Radix-4-Booth-Multiplier.pdf",
+    github: "#",
+    live: "#",
+    accent: "oklch(0.68 0.17 310)",
   },
   {
     id: "project-3",
