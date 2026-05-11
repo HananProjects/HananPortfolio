@@ -71,32 +71,32 @@ const CODE_LINES = [
 
 const TECH_STACK = [
   // Languages
-  { name: "C",             color: "oklch(0.65 0.15 255)", icon: "c" },
-  { name: "C++",           color: "oklch(0.62 0.16 250)", icon: "cplusplus" },
-  { name: "Python",        color: "oklch(0.72 0.15 250)", icon: "python" },
-  { name: "Java",          color: "oklch(0.65 0.18 35)",  icon: "java" },
-  { name: "JavaScript",    color: "oklch(0.80 0.18 90)",  icon: "javascript" },
-  { name: "Verilog",       color: "oklch(0.65 0.16 290)"  },
-  { name: "HTML/CSS",      color: "oklch(0.65 0.18 30)",  icon: "html5" },
-  { name: "SQL",           color: "oklch(0.60 0.12 230)"  },
+  { name: "C",             color: "oklch(0.65 0.15 255)", icon: "c",           href: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+  { name: "C++",           color: "oklch(0.62 0.16 250)", icon: "cplusplus",   href: "https://isocpp.org" },
+  { name: "Python",        color: "oklch(0.72 0.15 250)", icon: "python",      href: "https://python.org" },
+  { name: "Java",          color: "oklch(0.65 0.18 35)",  icon: "java",        href: "https://java.com" },
+  { name: "JavaScript",    color: "oklch(0.80 0.18 90)",  icon: "javascript",  href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "Verilog",       color: "oklch(0.65 0.16 290)",                      href: "https://en.wikipedia.org/wiki/Verilog" },
+  { name: "HTML/CSS",      color: "oklch(0.65 0.18 30)",  icon: "html5",       href: "https://developer.mozilla.org/en-US/docs/Web" },
+  { name: "SQL",           color: "oklch(0.60 0.12 230)",                      href: "https://en.wikipedia.org/wiki/SQL" },
   // Frameworks & Tools
-  { name: "React",         color: "oklch(0.65 0.18 200)", icon: "react" },
-  { name: "Node.js",       color: "oklch(0.65 0.18 150)", icon: "nodedotjs" },
-  { name: "Next.js",       color: "oklch(0.82 0.02 0)",   icon: "nextdotjs", iconColor: "e2e8f0" },
-  { name: "Django",        color: "oklch(0.60 0.15 150)", icon: "django",    iconColor: "44b78b" },
-  { name: "Tailwind CSS",  color: "oklch(0.65 0.20 200)", icon: "tailwindcss" },
-  { name: "PostgreSQL",    color: "oklch(0.55 0.15 240)", icon: "postgresql" },
-  { name: "Bash",          color: "oklch(0.70 0.10 150)", icon: "gnubash" },
-  { name: "Git",           color: "oklch(0.65 0.20 25)",  icon: "git" },
-  { name: "Linux",         color: "oklch(0.72 0.14 75)",  icon: "linux" },
-  { name: "MATLAB",        color: "oklch(0.72 0.18 45)",  icon: "matlab" },
-  { name: "Quartus",       color: "oklch(0.60 0.15 210)"  },
-  { name: "ModelSim",      color: "oklch(0.62 0.12 210)"  },
+  { name: "React",         color: "oklch(0.65 0.18 200)", icon: "react",       href: "https://react.dev" },
+  { name: "Node.js",       color: "oklch(0.65 0.18 150)", icon: "nodedotjs",   href: "https://nodejs.org" },
+  { name: "Next.js",       color: "oklch(0.82 0.02 0)",   icon: "nextdotjs",   href: "https://nextjs.org",         iconColor: "e2e8f0" },
+  { name: "Django",        color: "oklch(0.60 0.15 150)", icon: "django",      href: "https://djangoproject.com",  iconColor: "44b78b" },
+  { name: "Tailwind CSS",  color: "oklch(0.65 0.20 200)", icon: "tailwindcss", href: "https://tailwindcss.com" },
+  { name: "PostgreSQL",    color: "oklch(0.55 0.15 240)", icon: "postgresql",  href: "https://postgresql.org" },
+  { name: "Bash",          color: "oklch(0.70 0.10 150)", icon: "gnubash",     href: "https://gnu.org/software/bash/" },
+  { name: "Git",           color: "oklch(0.65 0.20 25)",  icon: "git",         href: "https://git-scm.com" },
+  { name: "Linux",         color: "oklch(0.72 0.14 75)",  icon: "linux",       href: "https://kernel.org" },
+  { name: "MATLAB",        color: "oklch(0.72 0.18 45)",  icon: "matlab",      href: "https://mathworks.com/products/matlab.html" },
+  { name: "Quartus",       color: "oklch(0.60 0.15 210)",                      href: "https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html" },
+  { name: "ModelSim",      color: "oklch(0.62 0.12 210)",                      href: "https://eda.sw.siemens.com/en-US/ic/modelsim/" },
   // Hardware & Embedded
-  { name: "Raspberry Pi",  color: "oklch(0.62 0.20 15)",  icon: "raspberrypi" },
-  { name: "Arduino",       color: "oklch(0.60 0.16 180)", icon: "arduino" },
-  { name: "ARM MCUs",      color: "oklch(0.65 0.15 220)", icon: "arm" },
-  { name: "FPGA (Intel)",  color: "oklch(0.60 0.18 310)", icon: "intel" },
+  { name: "Raspberry Pi",  color: "oklch(0.62 0.20 15)",  icon: "raspberrypi", href: "https://raspberrypi.com" },
+  { name: "Arduino",       color: "oklch(0.60 0.16 180)", icon: "arduino",     href: "https://arduino.cc" },
+  { name: "ARM MCUs",      color: "oklch(0.65 0.15 220)", icon: "arm",         href: "https://arm.com" },
+  { name: "FPGA (Intel)",  color: "oklch(0.60 0.18 310)", icon: "intel",       href: "https://www.intel.com/content/www/us/en/products/details/fpga.html" },
 ]
 
 
@@ -184,7 +184,7 @@ function SectionHeader({ label }: { label: string }) {
 
 type RunState = "idle" | "running" | "done"
 
-const OUTPUT_LINES: { text: string; color: string; bold?: boolean; pulse?: boolean; size?: string }[] = [
+const OUTPUT_LINES: { text: string; color: string; bold?: boolean; pulse?: boolean; size?: string; href?: string; iconSrc?: string; type?: "image"; src?: string }[] = [
   { text: "",                                                          color: "" },
   { text: "Reading about.md  ✓",                                      color: "#3fb950" },
   { text: "",                                                          color: "" },
@@ -192,6 +192,7 @@ const OUTPUT_LINES: { text: string; color: string; bold?: boolean; pulse?: boole
   { text: " 📄 about.md",                                             color: "#8b949e" },
   { text: "─".repeat(48),                                             color: "#21262d" },
   { text: "",                                                          color: "" },
+  { type: "image", src: "/profile.jpg", text: "", color: "" },
   { text: " Hanan Hussain",                                           color: "#e6edf3", size: "text-4xl font-bold leading-none tracking-tight" },
   { text: "",                                                          color: "" },
   { text: " Computer Engineer  ·  B.Sc. USask '26",                  color: "#79c0ff", size: "text-sm leading-relaxed" },
@@ -204,9 +205,9 @@ const OUTPUT_LINES: { text: string; color: string; bold?: boolean; pulse?: boole
   { text: " Capstone: bidirectional ASL ↔ English translator on",    color: "#8b949e" },
   { text: " Raspberry Pi 5 — fully offline, under 2s latency.",      color: "#8b949e" },
   { text: "",                                                          color: "" },
-  { text: " ✉  hanan.hussain@usask.ca",                              color: "#a5d6ff" },
-  { text: " ↗  linkedin.com/in/hananhussain1",                       color: "#79c0ff" },
-  { text: " ☎  306-444-1025",                                        color: "#8b949e" },
+  { text: " hanan.hussain@usask.ca",                                color: "#a5d6ff", href: "mailto:hanan.hussain@usask.ca",          iconSrc: "email" },
+  { text: " linkedin.com/in/hananhussain1",                              color: "#79c0ff", href: "https://linkedin.com/in/hananhussain1", iconSrc: "https://cdn.simpleicons.org/linkedin/79c0ff" },
+  { text: " 306-444-1025",                                           color: "#8b949e", href: "tel:3064441025" },
   { text: "",                                                          color: "" },
   { text: " ●  available for opportunities",                          color: "#3fb950", pulse: true },
   { text: "",                                                          color: "" },
@@ -274,10 +275,24 @@ function OutputPanel({ state }: { state: RunState }) {
                 hidden: { opacity: 0, x: -6 },
                 show: { opacity: 1, x: 0, transition: { duration: 0.18 } },
               }}
-              className={cn(line.size ?? "text-xs leading-5", !line.size && line.bold && "font-semibold")}
-              style={{ color: line.color || "transparent", minHeight: line.size ? undefined : "1.25rem" }}
+              className={cn(
+                line.type === "image" ? "py-1" : (line.size ?? "text-xs leading-5"),
+                !line.size && line.bold && "font-semibold",
+              )}
+              style={{
+                color: line.type === "image" ? undefined : (line.color || "transparent"),
+                minHeight: line.type === "image" ? undefined : (line.size ? undefined : "1.25rem"),
+              }}
             >
-              {line.pulse ? (
+              {line.type === "image" ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={line.src}
+                  alt="Hanan Hussain"
+                  className="w-28 h-28 rounded-full object-cover border-2 border-border ml-1"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none" }}
+                />
+              ) : line.pulse ? (
                 <>
                   <motion.span
                     animate={{ opacity: [1, 0.3, 1] }}
@@ -288,6 +303,23 @@ function OutputPanel({ state }: { state: RunState }) {
                   </motion.span>
                   {line.text.slice(1)}
                 </>
+              ) : line.href ? (
+                <a
+                  href={line.href}
+                  target={line.href.startsWith("http") ? "_blank" : undefined}
+                  rel={line.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-1.5 hover:underline underline-offset-2 cursor-pointer"
+                >
+                  {line.iconSrc === "email" ? (
+                    <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                  ) : line.iconSrc ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={line.iconSrc} alt="" className="w-3.5 h-3.5 shrink-0" />
+                  ) : null}
+                  {line.text}
+                </a>
               ) : (
                 line.text || " "
               )}
@@ -400,6 +432,14 @@ function HeroSection({ onNavigate }: { onNavigate: (id: string) => void }) {
                 <span className="text-muted-foreground/50 select-none">$</span>
                 tech_stack
               </button>
+              <a
+                href="/resume.pdf"
+                download
+                className="flex items-center gap-2 px-4 py-2 rounded-md border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors duration-150"
+              >
+                <span className="text-muted-foreground/50 select-none">↓</span>
+                resume.pdf
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -429,15 +469,18 @@ function TechStackSection() {
           viewport={{ once: true, margin: "-60px" }}
         >
           {TECH_STACK.map((tech) => (
-            <motion.div
+            <motion.a
               key={tech.name}
+              href={tech.href}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={{
                 hidden: { opacity: 0, scale: 0.85 },
                 show: { opacity: 1, scale: 1, transition: { duration: 0.2 } },
               }}
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.12 }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-[oklch(0.12_0.01_220)] font-mono text-sm cursor-default"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-[oklch(0.12_0.01_220)] font-mono text-sm cursor-pointer hover:border-border/80 hover:text-foreground transition-colors duration-150"
             >
               {tech.icon ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -450,7 +493,7 @@ function TechStackSection() {
                 <span style={{ color: tech.color }}>◆</span>
               )}
               <span className="text-muted-foreground">{tech.name}</span>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>
@@ -600,7 +643,7 @@ export default function Home() {
         initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-56 shrink-0 rounded-xl border border-border bg-[oklch(0.09_0.01_220)] flex flex-col overflow-hidden shadow-lg shadow-black/30"
+        className="hidden md:flex w-56 shrink-0 rounded-xl border border-border bg-[oklch(0.09_0.01_220)] flex-col overflow-hidden shadow-lg shadow-black/30"
       >
         <div className="h-9 flex items-center px-4 border-b border-border/40 shrink-0">
           <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/40 select-none">
@@ -610,6 +653,17 @@ export default function Home() {
 
         <div className="flex-1 overflow-y-auto py-1 px-1">
           <FileTree data={TREE} activeId={activeId} onFileClick={handleFileClick} />
+        </div>
+
+        <div className="border-t border-border/40 px-2 py-1.5 shrink-0">
+          <a
+            href="/resume.pdf"
+            download
+            className="flex items-center gap-2 px-2 py-1 rounded text-[11px] font-mono text-muted-foreground/60 hover:text-foreground hover:bg-[oklch(0.15_0.01_220)] transition-colors duration-150 w-full"
+          >
+            <span className="text-primary/70">↓</span>
+            <span>resume.pdf</span>
+          </a>
         </div>
 
         <div className="h-6 border-t border-border/40 flex items-center px-3 shrink-0">

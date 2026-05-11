@@ -13,8 +13,18 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Full Stack Developer. Building things for the web.",
+  title: "Hanan Hussain — Portfolio",
+  description: "Computer Engineering student at USask. Building across the full stack — from web apps to real-time embedded systems on Raspberry Pi and FPGA.",
+  openGraph: {
+    title: "Hanan Hussain — Portfolio",
+    description: "Computer Engineering student at USask. Building across the full stack — from web apps to real-time embedded systems on Raspberry Pi and FPGA.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Hanan Hussain — Portfolio",
+    description: "Computer Engineering student at USask. Building across the full stack — from web apps to real-time embedded systems.",
+  },
 }
 
 export default function RootLayout({
