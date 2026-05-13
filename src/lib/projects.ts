@@ -19,6 +19,29 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "project-5",
+    slug: "ai-code-review-pipeline",
+    filename: "review_pipeline.py",
+    name: "AI Code Review Pipeline",
+    period: "2026",
+    description:
+      "Autonomous multi-agent system that reviews GitHub Pull Requests in real time, posting inline comments on specific lines of code — like CodeRabbit, built from scratch.",
+    longDescription:
+      "A production-deployed multi-agent system that hooks into GitHub's PR workflow and runs three specialized AI reviewers — Security, Performance, and Style — in parallel using CrewAI and Claude Sonnet. When a PR is opened or updated, GitHub fires a webhook at a FastAPI server on GCP Cloud Run. The server verifies the HMAC signature, returns 202 immediately so GitHub never times out, and kicks off the review in the background. Each agent analyzes the diff independently and their findings are posted as inline GitHub Review comments pinned to the exact lines of code that triggered them.",
+    highlights: [
+      "Three agents (Security, Performance, Style) run in parallel — not sequentially — so review time doesn't scale with agent count",
+      "Inline line-level comments posted via the GitHub Review API, pinned to specific diff lines like CodeRabbit",
+      "Returns HTTP 202 immediately on webhook receipt; full review runs async in the background",
+      "HMAC-SHA256 webhook signature verification on every incoming request",
+      "Deployed on GCP Cloud Run with Docker — live URL, not just a local demo",
+      "Agents powered by Claude Sonnet via the Anthropic API, orchestrated with CrewAI",
+    ],
+    tech: ["Python", "CrewAI", "Claude API", "FastAPI", "GitHub API", "GCP Cloud Run", "Docker"],
+    github: "https://github.com/HananProjects/ai-code-review-pipeline",
+    live: "#",
+    accent: "oklch(0.62 0.18 200)",
+  },
+  {
     id: "project-0",
     slug: "asl-translator",
     filename: "asl-translator.py",

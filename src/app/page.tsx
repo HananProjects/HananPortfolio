@@ -111,11 +111,12 @@ const TREE: FileNode[] = [
         name: "projects",
         type: "folder",
         children: [
-          { name: "asl-translator.py",  type: "file", extension: "py",  id: "project-0" },
-          { name: "kawakraft.tsx",       type: "file", extension: "tsx", id: "project-1" },
-          { name: "microprocessor.v",    type: "file", extension: "v",   id: "project-2" },
-          { name: "booth-multiplier.v",  type: "file", extension: "v",   id: "project-4" },
-          { name: "travel-app.py",       type: "file", extension: "py",  id: "project-3" },
+          { name: "review_pipeline.py",  type: "file", extension: "py",  id: "project-5" },
+          { name: "asl-translator.py",   type: "file", extension: "py",  id: "project-0" },
+          { name: "kawakraft.tsx",        type: "file", extension: "tsx", id: "project-1" },
+          { name: "microprocessor.v",     type: "file", extension: "v",   id: "project-2" },
+          { name: "booth-multiplier.v",   type: "file", extension: "v",   id: "project-4" },
+          { name: "travel-app.py",        type: "file", extension: "py",  id: "project-3" },
         ],
       },
     ],
@@ -125,6 +126,7 @@ const TREE: FileNode[] = [
 const ID_TO_FILENAME: Record<string, string> = {
   "hero":      "developer.py",
   "stack":     "tech_stack.ts",
+  "project-5": "review_pipeline.py",
   "project-0": "asl-translator.py",
   "project-1": "kawakraft.tsx",
   "project-2": "microprocessor.v",
@@ -132,7 +134,7 @@ const ID_TO_FILENAME: Record<string, string> = {
   "project-3": "travel-app.py",
 }
 
-const SECTION_IDS = ["hero", "stack", "project-0", "project-1", "project-2", "project-4", "project-3"]
+const SECTION_IDS = ["hero", "stack", "project-5", "project-0", "project-1", "project-2", "project-4", "project-3"]
 
 // ─── Primitives ───────────────────────────────────────────────────────────────
 
