@@ -239,11 +239,19 @@ function RunButton({ state, onClick }: { state: RunState; onClick: () => void })
     <motion.button
       onClick={onClick}
       disabled={state === "running"}
+      animate={state === "idle" ? {
+        boxShadow: [
+          "0 0 0 0px rgba(63,185,80,0.0)",
+          "0 0 0 4px rgba(63,185,80,0.25)",
+          "0 0 0 0px rgba(63,185,80,0.0)",
+        ],
+      } : {}}
+      transition={state === "idle" ? { repeat: Infinity, duration: 2, ease: "easeInOut" } : {}}
       whileHover={state !== "running" ? { scale: 1.05 } : undefined}
       whileTap={state !== "running" ? { scale: 0.95 } : undefined}
       className={cn(
         "flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono border transition-colors duration-150",
-        state === "idle"    && "text-[#3fb950] border-[#3fb950]/40 hover:bg-[#3fb950]/10",
+        state === "idle"    && "text-[#3fb950] border-[#3fb950]/60 bg-[#3fb950]/10 hover:bg-[#3fb950]/20",
         state === "running" && "text-muted-foreground border-border/50 cursor-not-allowed opacity-60",
         state === "done"    && "text-primary border-primary/40 hover:bg-primary/10",
       )}
@@ -434,14 +442,25 @@ function HeroSection({ onNavigate }: { onNavigate: (id: string) => void }) {
                 <span className="text-muted-foreground/50 select-none">$</span>
                 tech_stack
               </button>
-              <a
-                href="/resume.pdf"
-                download
-                className="flex items-center gap-2 px-4 py-2 rounded-md border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors duration-150"
-              >
-                <span className="text-muted-foreground/50 select-none">↓</span>
-                resume.pdf
-              </a>
+              <div className="flex items-stretch rounded-md border border-primary/30 bg-primary/5 overflow-hidden font-mono text-sm">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-foreground hover:bg-primary/10 transition-colors duration-150"
+                >
+                  <span className="text-primary select-none">◱</span>
+                  resume.pdf
+                </a>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="flex items-center px-3 border-l border-primary/20 text-primary/60 hover:text-primary hover:bg-primary/10 transition-colors duration-150"
+                  title="Download"
+                >
+                  ↓
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -658,14 +677,35 @@ export default function Home() {
         </div>
 
         <div className="border-t border-border/40 px-2 py-1.5 shrink-0">
-          <a
-            href="/resume.pdf"
-            download
-            className="flex items-center gap-2 px-2 py-1 rounded text-[11px] font-mono text-muted-foreground/60 hover:text-foreground hover:bg-[oklch(0.15_0.01_220)] transition-colors duration-150 w-full"
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 0 0px rgba(99,179,237,0.0)",
+                "0 0 0 3px rgba(99,179,237,0.20)",
+                "0 0 0 0px rgba(99,179,237,0.0)",
+              ],
+            }}
+            transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut", delay: 0.6 }}
+            className="flex items-stretch rounded border border-primary/30 bg-primary/5 overflow-hidden"
           >
-            <span className="text-primary/70">↓</span>
-            <span>resume.pdf</span>
-          </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-2 py-1 text-[11px] font-mono text-foreground/70 hover:text-foreground hover:bg-primary/10 transition-colors duration-150 flex-1 min-w-0"
+            >
+              <span className="text-primary shrink-0">◱</span>
+              <span className="truncate">resume.pdf</span>
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              title="Download"
+              className="flex items-center px-2 border-l border-primary/20 text-[11px] font-mono text-primary/60 hover:text-primary hover:bg-primary/10 transition-colors duration-150 shrink-0"
+            >
+              ↓
+            </a>
+          </motion.div>
         </div>
 
         <div className="h-6 border-t border-border/40 flex items-center px-3 shrink-0">
