@@ -19,6 +19,30 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "project-6",
+    slug: "horus",
+    filename: "horus.py",
+    name: "Horus — AI Desktop Assistant",
+    period: "2025 – 2026",
+    description:
+      "Agentic desktop AI assistant with an Iron Man HUD-style interface. Combines real-time voice I/O, persistent vector memory, and computer control — all running locally with Claude as the reasoning core.",
+    longDescription:
+      "Horus is a personal agentic AI assistant built around a fully local voice pipeline and a React dashboard styled as a HUD. Spoken input is transcribed offline via OpenAI Whisper, routed through Claude for reasoning, and replied to with synthesized speech — all under 2 seconds end-to-end. A FastAPI backend manages real-time bidirectional communication over WebSockets, while ChromaDB stores and retrieves memories as vector embeddings so Horus remembers past conversations. The computer-control layer lets Horus take actions on the desktop — clicking, typing, screenshotting — using the Anthropic Computer Use API. A Three.js animated HUD and live logs for conversation, memory, and actions are surfaced in the React frontend.",
+    highlights: [
+      "Full voice pipeline: offline Whisper STT → Claude reasoning → pyttsx3 TTS with under 2s latency",
+      "Persistent vector memory via ChromaDB — Horus recalls context across sessions",
+      "Computer control using Anthropic Computer Use API: click, type, screenshot autonomously",
+      "Real-time HUD dashboard in React with Three.js 3D visualizations and live action logs",
+      "FastAPI backend with WebSocket streaming for low-latency bidirectional communication",
+      "Obsidian vault and Gmail integrations for personal knowledge and inbox access",
+      "Fully local operation — no cloud dependency beyond the Claude and Whisper APIs",
+    ],
+    tech: ["Python", "FastAPI", "React", "Three.js", "Claude API", "OpenAI Whisper", "ChromaDB", "WebSockets"],
+    github: "#",
+    live: "#",
+    accent: "oklch(0.72 0.20 55)",
+  },
+  {
     id: "project-5",
     slug: "ai-code-review-pipeline",
     filename: "review_pipeline.py",
