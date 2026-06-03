@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
       "Fully local operation — no cloud dependency beyond the Claude and Whisper APIs",
     ],
     tech: ["Python", "FastAPI", "React", "Three.js", "Claude API", "OpenAI Whisper", "ChromaDB", "WebSockets"],
-    github: "#",
+    github: "https://github.com/HananProjects/Horus",
     live: "#",
     accent: "oklch(0.72 0.20 55)",
   },
