@@ -5,7 +5,15 @@
       "PowerShell(wmic logicaldisk get DeviceID,FreeSpace,Size)",
       "PowerShell(npm config set cache \"B:\\\\npm-cache\" --global)",
       "PowerShell(npm config get cache)",
-      "PowerShell(Get-ChildItem \"b:\\\\portfolio\" -Force | ForEach-Object { Move-Item $_.FullName \"b:\\\\Portfolio\\\\\" -Force }; Get-ChildItem \"b:\\\\Portfolio\")"
+      "PowerShell(Get-ChildItem \"b:\\\\portfolio\" -Force | ForEach-Object { Move-Item $_.FullName \"b:\\\\Portfolio\\\\\" -Force }; Get-ChildItem \"b:\\\\Portfolio\")",
+      "Bash(git stash *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(ls -la \"B:\\\\Horus\" | head -30)",
+      "Read(//b/Horus/**)",
+      "PowerShell(git -C \"B:\\\\Horus\" remote -v 2>$null)",
+      "PowerShell(if \\(-not $?\\) { \"no git remote\" })"
     ]
   }
 }
