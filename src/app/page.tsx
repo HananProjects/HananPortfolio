@@ -110,9 +110,12 @@ const TREE: FileNode[] = [
       {
         name: "projects",
         type: "folder",
+        id: "projects-section",
         children: [
-          { name: "horus.py",             type: "file", extension: "py",  id: "project-6" },
+          { name: "server.js",           type: "file", extension: "js",  id: "project-7" },
+          { name: "invoices.ts",         type: "file", extension: "ts",  id: "project-8" },
           { name: "review_pipeline.py",  type: "file", extension: "py",  id: "project-5" },
+          { name: "horus.py",            type: "file", extension: "py",  id: "project-6" },
           { name: "asl-translator.py",   type: "file", extension: "py",  id: "project-0" },
           { name: "kawakraft.tsx",        type: "file", extension: "tsx", id: "project-1" },
           { name: "microprocessor.v",     type: "file", extension: "v",   id: "project-2" },
@@ -125,18 +128,21 @@ const TREE: FileNode[] = [
 ]
 
 const ID_TO_FILENAME: Record<string, string> = {
-  "hero":      "developer.py",
-  "stack":     "tech_stack.ts",
-  "project-6": "horus.py",
-  "project-5": "review_pipeline.py",
-  "project-0": "asl-translator.py",
-  "project-1": "kawakraft.tsx",
-  "project-2": "microprocessor.v",
-  "project-4": "booth-multiplier.v",
-  "project-3": "travel-app.py",
+  "hero":             "developer.py",
+  "stack":            "tech_stack.ts",
+  "projects-section": "projects/",
+  "project-7":        "server.js",
+  "project-8":        "invoices.ts",
+  "project-5":        "review_pipeline.py",
+  "project-6":        "horus.py",
+  "project-0":        "asl-translator.py",
+  "project-1":        "kawakraft.tsx",
+  "project-2":        "microprocessor.v",
+  "project-4":        "booth-multiplier.v",
+  "project-3":        "travel-app.py",
 }
 
-const SECTION_IDS = ["hero", "stack", "project-6", "project-5", "project-0", "project-1", "project-2", "project-4", "project-3"]
+const SECTION_IDS = ["hero", "stack", "projects-section", "project-7", "project-8", "project-5", "project-6", "project-0", "project-1", "project-2", "project-4", "project-3"]
 
 // ─── Primitives ───────────────────────────────────────────────────────────────
 
@@ -374,7 +380,33 @@ function HeroSection({ onNavigate }: { onNavigate: (id: string) => void }) {
         transition={{ duration: 0.5 }}
         className="w-full max-w-2xl"
       >
-        <WindowChrome title="developer.py" action={<RunButton state={runState} onClick={handleRun} />}>
+        <WindowChrome
+          title="developer.py"
+          action={
+            <div className="flex items-center gap-2">
+              <AnimatePresence>
+                {runState === "idle" && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 6 }}
+                    transition={{ duration: 0.3, delay: 1.5 }}
+                    className="flex items-center gap-1 text-[10px] font-mono text-[#3fb950]/70 select-none"
+                  >
+                    <span>click me</span>
+                    <motion.span
+                      animate={{ x: [0, 3, 0] }}
+                      transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+                    >
+                      →
+                    </motion.span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <RunButton state={runState} onClick={handleRun} />
+            </div>
+          }
+        >
           <div className="p-5 font-mono text-sm leading-6">
             <motion.div variants={container} initial="hidden" animate="show">
               {CODE_LINES.map((tokens, i) => (
@@ -528,7 +560,7 @@ function ProjectsSection() {
   const router = useRouter()
 
   return (
-    <section className="px-6 py-28">
+    <section id="projects-section" className="px-6 py-28">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

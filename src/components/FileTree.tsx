@@ -47,7 +47,11 @@ function FileItem({ node, depth, activeId, onFileClick }: FileItemProps) {
 
   const handleClick = () => {
     if (isFolder) {
-      setIsOpen((v) => !v)
+      if (node.id) {
+        onFileClick(node.id)
+      } else {
+        setIsOpen((v) => !v)
+      }
     } else if (node.id) {
       onFileClick(node.id)
     }
