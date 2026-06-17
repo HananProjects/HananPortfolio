@@ -307,7 +307,7 @@ function OutputPanel({ state }: { state: RunState }) {
                 <img
                   src={line.src}
                   alt="Hanan Hussain"
-                  className="w-28 h-28 rounded-full object-cover border-2 border-border ml-1"
+                  className="w-44 h-44 rounded-full object-cover border-2 border-border ml-1"
                   onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none" }}
                 />
               ) : line.pulse ? (
