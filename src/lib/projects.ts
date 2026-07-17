@@ -43,6 +43,30 @@ export const PROJECTS: Project[] = [
     accent: "oklch(0.65 0.18 275)",
   },
   {
+    id: "project-9",
+    slug: "fraudguard",
+    filename: "scoring.go",
+    name: "FraudGuard — Real-Time Fraud Detection",
+    period: "2026",
+    description:
+      "Event-driven fraud/anomaly detection pipeline on Azure — a Go scoring microservice consumes a live transaction stream from Event Hubs and flags amount, velocity, and geo-velocity anomalies in real time on a Next.js dashboard.",
+    longDescription:
+      "FraudGuard is an event-driven fraud-detection system designed to mirror production Azure architecture end-to-end. A Go-based generator streams synthetic transactions — with injectable fraud patterns (amount outliers, velocity bursts, impossible-travel geo pairs) — through Azure Event Hubs into a Go scoring microservice running on Azure Container Apps, autoscaling via KEDA on consumer lag. The scoring service keeps rolling per-account statistics and combines an amount z-score check, a transaction-velocity check, and a geo-velocity (\"impossible travel\") check into a single weighted risk score, benchmarked against injected ground-truth labels for measurable precision/recall. Scored transactions land in Cosmos DB, whose change feed drives real-time updates to a Next.js dashboard through an Azure Function and Azure SignalR Service — no client-side polling. The full environment is defined in Terraform and deployed via GitHub Actions with OIDC-based Azure authentication, including a scripted spin-up/tear-down workflow so the one continuously-billed resource (Event Hubs) doesn't run between demos.",
+    highlights: [
+      "Event-driven microservice architecture: Go scoring service on Azure Container Apps, autoscaling via KEDA on Event Hubs consumer lag, scaling to zero when idle",
+      "Rules-based fraud scoring: rolling per-account amount z-score, transaction-velocity, and geo-velocity (\"impossible travel\") checks combined into a weighted 0-100 risk score",
+      "Synthetic transaction generator with injectable fraud patterns (amount outliers, velocity bursts, impossible-travel pairs) for measuring precision/recall against ground-truth labels",
+      "Real-time dashboard updates via Cosmos DB change feed → Azure Function → Azure SignalR Service — no client-side polling",
+      "Infrastructure-as-Code in Terraform across Event Hubs, Cosmos DB, Container Apps, and SignalR, deployed via GitHub Actions with OIDC-based Azure authentication (no stored secrets)",
+      "Cost-aware architecture: scripted spin-up/tear-down pipeline keeps the one always-billing resource (Event Hubs) off between demos",
+      "NextAuth-gated Next.js dashboard with a live risk-scored transaction feed and color-coded severity badges",
+    ],
+    tech: ["Go", "Next.js", "TypeScript", "Terraform", "Azure Event Hubs", "Azure Cosmos DB", "Azure Container Apps", "Azure SignalR", "GitHub Actions"],
+    github: "#",
+    live: "#",
+    accent: "oklch(0.62 0.20 15)",
+  },
+  {
     id: "project-8",
     slug: "autoholic-invoicing",
     filename: "invoices.ts",
