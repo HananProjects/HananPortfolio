@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
       "NextAuth-gated Next.js dashboard with a live risk-scored transaction feed and color-coded severity badges",
     ],
     tech: ["Go", "Next.js", "TypeScript", "Terraform", "Azure Event Hubs", "Azure Cosmos DB", "Azure Container Apps", "Azure SignalR", "GitHub Actions"],
-    github: "#",
+    github: "https://github.com/HananProjects/FraudGuard",
     live: "#",
     accent: "oklch(0.62 0.20 15)",
   },
