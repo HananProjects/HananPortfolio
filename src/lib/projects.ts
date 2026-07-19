@@ -19,30 +19,6 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "project-7",
-    slug: "nanistack",
-    filename: "server.js",
-    name: "NaniStack — Agency OS",
-    period: "2026",
-    description:
-      "Self-hosted agency operating system and Telegram bot that routes tasks to 6 specialized AI agents powered by a local LLM — real-time WebSocket dashboard, client management, and a built-in daily planner.",
-    longDescription:
-      "NaniStack is a local agency OS built to manage client work through AI agents. A Node.js/Express backend serves a real-time dashboard over WebSockets and simultaneously runs a Telegram bot — any task submitted through either interface is analyzed by a router that selects the most appropriate agent: Invoice-Bot, Data-Sync, Web-Crawler, Report-Gen, Coder, or General. All agents run on a locally-hosted Ollama LLM (qwen3:14b), keeping everything private and free from API costs. The dashboard streams responses token by token, tracks all requests with full history, manages clients with MRR tracking, and includes a daily planner with a mini calendar, task priorities, and time scheduling. Deployed on a Raspberry Pi via systemd for always-on local access.",
-    highlights: [
-      "6 specialized agents (Invoice-Bot, Data-Sync, Web-Crawler, Report-Gen, Coder, General) with automatic LLM-based routing",
-      "Dual interfaces: real-time dashboard UI and Telegram bot — both backed by the same agent system",
-      "Fully local LLM via Ollama (qwen3:14b) — no cloud API costs, completely private",
-      "Token-level response streaming over WebSocket — output appears live as the model generates it",
-      "Built-in daily planner with mini calendar, task priorities, time scheduling, and category tags",
-      "Client management with MRR tracking and per-client request history",
-      "Deployed on Raspberry Pi via systemd — always-on, accessible over the home network as a PWA",
-    ],
-    tech: ["Node.js", "Express", "WebSocket", "Ollama", "Telegram Bot API", "Raspberry Pi"],
-    github: "https://github.com/HananProjects/NaniStack",
-    live: "#",
-    accent: "oklch(0.65 0.18 275)",
-  },
-  {
     id: "project-9",
     slug: "fraudguard",
     filename: "scoring.go",
@@ -67,6 +43,30 @@ export const PROJECTS: Project[] = [
     accent: "oklch(0.62 0.20 15)",
   },
   {
+    id: "project-7",
+    slug: "nanistack",
+    filename: "server.js",
+    name: "NaniStack — Agency OS",
+    period: "2026",
+    description:
+      "Self-hosted agency operating system and Telegram bot that routes tasks to 6 specialized AI agents powered by a local LLM — real-time WebSocket dashboard, client management, and a built-in daily planner.",
+    longDescription:
+      "NaniStack is a local agency OS built to manage client work through AI agents. A Node.js/Express backend serves a real-time dashboard over WebSockets and simultaneously runs a Telegram bot — any task submitted through either interface is analyzed by a router that selects the most appropriate agent: Invoice-Bot, Data-Sync, Web-Crawler, Report-Gen, Coder, or General. All agents run on a locally-hosted Ollama LLM (qwen3:14b), keeping everything private and free from API costs. The dashboard streams responses token by token, tracks all requests with full history, manages clients with MRR tracking, and includes a daily planner with a mini calendar, task priorities, and time scheduling. Deployed on a Raspberry Pi via systemd for always-on local access.",
+    highlights: [
+      "6 specialized agents (Invoice-Bot, Data-Sync, Web-Crawler, Report-Gen, Coder, General) with automatic LLM-based routing",
+      "Dual interfaces: real-time dashboard UI and Telegram bot — both backed by the same agent system",
+      "Fully local LLM via Ollama (qwen3:14b) — no cloud API costs, completely private",
+      "Token-level response streaming over WebSocket — output appears live as the model generates it",
+      "Built-in daily planner with mini calendar, task priorities, time scheduling, and category tags",
+      "Client management with MRR tracking and per-client request history",
+      "Deployed on Raspberry Pi via systemd — always-on, accessible over the home network as a PWA",
+    ],
+    tech: ["Node.js", "Express", "WebSocket", "Ollama", "Telegram Bot API", "Raspberry Pi"],
+    github: "https://github.com/HananProjects/NaniStack",
+    live: "#",
+    accent: "oklch(0.65 0.18 275)",
+  },
+  {
     id: "project-8",
     slug: "autoholic-invoicing",
     filename: "invoices.ts",
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
       "Codebase forked and independently deployed for a second client (Verified Auto)",
     ],
     tech: ["Next.js 15", "TypeScript", "SQLite", "Railway"],
-    github: "#",
+    github: "https://github.com/HananProjects/Autoholic-Invoicing",
     live: "#",
     accent: "oklch(0.70 0.18 35)",
   },

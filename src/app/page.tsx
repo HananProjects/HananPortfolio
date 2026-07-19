@@ -100,28 +100,30 @@ const TECH_STACK = [
 ]
 
 
+// Sidebar tree, filename map, and scroll-tracking IDs are derived directly from
+// PROJECTS (src/lib/projects.ts) so its order is the single source of truth —
+// adding a project there automatically adds it here in the same position.
+function extensionOf(filename: string): string {
+  return filename.split(".").pop() ?? "txt"
+}
+
 const TREE: FileNode[] = [
   {
     name: "portfolio",
     type: "folder",
     children: [
-      { name: "developer.py",     type: "file", extension: "py",  id: "hero"      },
-      { name: "tech_stack.ts",   type: "file", extension: "ts",  id: "stack"     },
+      { name: "developer.py",  type: "file", extension: "py", id: "hero"  },
+      { name: "tech_stack.ts", type: "file", extension: "ts", id: "stack" },
       {
         name: "projects",
         type: "folder",
         id: "projects-section",
-        children: [
-          { name: "server.js",           type: "file", extension: "js",  id: "project-7" },
-          { name: "invoices.ts",         type: "file", extension: "ts",  id: "project-8" },
-          { name: "review_pipeline.py",  type: "file", extension: "py",  id: "project-5" },
-          { name: "horus.py",            type: "file", extension: "py",  id: "project-6" },
-          { name: "asl-translator.py",   type: "file", extension: "py",  id: "project-0" },
-          { name: "kawakraft.tsx",        type: "file", extension: "tsx", id: "project-1" },
-          { name: "microprocessor.v",     type: "file", extension: "v",   id: "project-2" },
-          { name: "booth-multiplier.v",   type: "file", extension: "v",   id: "project-4" },
-          { name: "travel-app.py",        type: "file", extension: "py",  id: "project-3" },
-        ],
+        children: PROJECTS.map((p) => ({
+          name: p.filename,
+          type: "file" as const,
+          extension: extensionOf(p.filename),
+          id: p.id,
+        })),
       },
     ],
   },
@@ -131,18 +133,10 @@ const ID_TO_FILENAME: Record<string, string> = {
   "hero":             "developer.py",
   "stack":            "tech_stack.ts",
   "projects-section": "projects/",
-  "project-7":        "server.js",
-  "project-8":        "invoices.ts",
-  "project-5":        "review_pipeline.py",
-  "project-6":        "horus.py",
-  "project-0":        "asl-translator.py",
-  "project-1":        "kawakraft.tsx",
-  "project-2":        "microprocessor.v",
-  "project-4":        "booth-multiplier.v",
-  "project-3":        "travel-app.py",
+  ...Object.fromEntries(PROJECTS.map((p) => [p.id, p.filename])),
 }
 
-const SECTION_IDS = ["hero", "stack", "projects-section", "project-7", "project-8", "project-5", "project-6", "project-0", "project-1", "project-2", "project-4", "project-3"]
+const SECTION_IDS = ["hero", "stack", "projects-section", ...PROJECTS.map((p) => p.id)]
 
 // ─── Primitives ───────────────────────────────────────────────────────────────
 
