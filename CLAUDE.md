@@ -91,6 +91,7 @@ Deploy is automatic via Vercel on push to main.
 
 ## Recent Changes
 
+- **2026-07-18** — FraudGuard's GitHub repo now exists (`github.com/HananProjects/FraudGuard`, private) — pushed `main` plus both local feature branches (`feature/phase-1-mvp`, `feature/phase-2-realtime`) from `B:\FraudGuard\`, then updated its `github` field in `projects.ts` off `"#"` so the portfolio card shows a real button.
 - **2026-07-18** — Fixed FraudGuard: it was committed to `projects.ts` on a branch that never got merged to `main`/pushed, so it was never actually live — merged and pushed. Then fixed the deeper bug: `page.tsx`'s sidebar (`TREE`), filename map (`ID_TO_FILENAME`), and scroll IDs (`SECTION_IDS`) were a second, hand-maintained project list that never got FraudGuard added, so it was missing from the sidebar even once live. Refactored all three to derive from the `PROJECTS` array instead of duplicating it — see "Adding a New Project" above. Also reordered `PROJECTS` to newest-first (FraudGuard now first) and fixed Autoholic Invoicing's `github` field to point to its real (private) repo. `node_modules/.bin/tsc --noEmit` confirmed clean.
 - **2026-06-17** — Added 2 new projects to `src/lib/projects.ts`: NaniStack (project-7) and Autoholic Invoicing + Website (project-8). Placed between the Booth Multiplier and Travel App entries.
 
@@ -101,7 +102,7 @@ Deploy is automatic via Vercel on push to main.
 - 10 total projects in `projects.ts`, displayed in array order (newest first): FraudGuard, NaniStack, Autoholic Invoicing, AI Code Review Pipeline, Horus, ASL Translator, KawaKraft, Microprocessor, Booth Multiplier, Travel App.
 - NaniStack has no live URL (local Pi-hosted); github: `https://github.com/HananProjects/NaniStack`
 - Autoholic github: `https://github.com/HananProjects/Autoholic-Invoicing` (private repo); live is still `"#"`
-- FraudGuard github and live URLs are `"#"` — no GitHub repo exists for it yet (no remote configured locally). Update once it's created and pushed.
+- FraudGuard github: `https://github.com/HananProjects/FraudGuard` (private); live is still `"#"`
 - Microprocessor, Booth Multiplier, and Travel App are older academic projects with no git repo anywhere — their `github` field stays `"#"` until/unless one is created.
 - **Known environment gotcha:** this repo's `node_modules` (and any other project's, on this Google Drive-synced B:\ drive) can lose the executable bit on `.bin/*` shims when installed elsewhere and re-accessed from this Mac — `next`/`tsc` will report "command not found" despite existing. Fix: `chmod +x node_modules/.bin/*` once per session, or invoke via `node_modules/.bin/<tool>` directly.
 - **Known environment gotcha:** on this machine, `next dev` run through the agent's background-task runner hangs silently (no stdout, no port bound) when the project lives on the Google Drive-synced path — likely FUSE mount + file-watching or sandboxed-network interaction. Verify changes via `tsc --noEmit` and direct code reading instead; if you need a real visual check, run `next dev` yourself in a normal terminal.
