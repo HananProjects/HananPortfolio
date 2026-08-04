@@ -112,7 +112,7 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Next.js 15", "TypeScript", "SQLite", "Railway"],
     github: "https://github.com/HananProjects/Autoholic-Invoicing",
-    live: "https://autoholic-invoicing-production.up.railway.app",
+    live: "#",
     accent: "oklch(0.70 0.18 35)",
   },
   {
