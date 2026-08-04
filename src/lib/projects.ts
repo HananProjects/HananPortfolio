@@ -21,7 +21,7 @@ export const PROJECTS: Project[] = [
   {
     id: "project-10",
     slug: "keyhold",
-    filename: "rls.sql",
+    filename: "keyhold.sql",
     name: "Keyhold — Multi-Tenant Property Management Platform",
     period: "2026",
     description:
@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
   {
     id: "project-9",
     slug: "fraudguard",
-    filename: "scoring.go",
+    filename: "fraudguard.go",
     name: "FraudGuard — Real-Time Fraud Detection",
     period: "2026",
     description:
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
   {
     id: "project-7",
     slug: "nanistack",
-    filename: "server.js",
+    filename: "nanistack.js",
     name: "NaniStack — Agency OS",
     period: "2026",
     description:
@@ -94,11 +94,11 @@ export const PROJECTS: Project[] = [
   {
     id: "project-8",
     slug: "autoholic-invoicing",
-    filename: "invoices.ts",
-    name: "Autoholic Invoicing + Website",
+    filename: "autoholic-invoicing.ts",
+    name: "Autoholic Invoicing",
     period: "2026",
     description:
-      "Production invoicing system and business website built for a real auto repair and towing business — managing clients, vehicles, invoices, and expenses with Canadian GST/PST tax handling. Deployed on Railway and actively in use.",
+      "Production invoicing system built for a real auto repair and towing business — managing clients, vehicles, invoices, and expenses with Canadian GST/PST tax handling. Deployed on Railway and actively in use.",
     longDescription:
       "A full-stack invoicing application built and deployed for Autoholic Auto Care and Towing. The app manages the complete billing workflow: client and vehicle records, service-based invoice creation with line items, expense tracking, and automated Canadian tax calculations (GST/PST). Built with Next.js 15 and TypeScript on the frontend and raw SQL SQLite on the backend — no ORM, handwritten queries for full control. Deployed live on Railway and used daily by the business. The same codebase was also independently deployed for a second client, Verified Auto.",
     highlights: [
@@ -112,13 +112,36 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Next.js 15", "TypeScript", "SQLite", "Railway"],
     github: "https://github.com/HananProjects/Autoholic-Invoicing",
-    live: "#",
+    live: "https://autoholic-invoicing-production.up.railway.app",
     accent: "oklch(0.70 0.18 35)",
+  },
+  {
+    id: "project-11",
+    slug: "autoholic-website",
+    filename: "autoholic-website.tsx",
+    name: "Autoholic Website",
+    period: "2026",
+    description:
+      "Public marketing site for Autoholic Auto Care and Towing — a scroll-driven 3D interactive car model built with Three.js and React Three Fiber, animated with GSAP. Deployed live on Vercel.",
+    longDescription:
+      "The public-facing marketing website for Autoholic Auto Care and Towing, built as a single-page experience centered on a scroll-driven 3D car model. React Three Fiber renders the model while GSAP ScrollTrigger choreographs its rotation and camera movement against the page scroll, alongside sections for services, stats, about, and contact. There's no database or authentication — a pure frontend/SSR site optimized for fast loads and a polished first impression for a real local business. Built and shipped alongside the same client's Autoholic Invoicing system.",
+    highlights: [
+      "Scroll-driven 3D car model built with Three.js / React Three Fiber, choreographed via GSAP ScrollTrigger",
+      "Single-page marketing site: hero, services, stats, about, and contact sections",
+      "Pure frontend/SSR — no database or authentication required",
+      "Deployed live on Vercel; custom domain (autoholicautocare.ca) pending final DNS cutover",
+      "Responsive tuning for both the desktop scroll experience and mobile",
+      "Built and shipped for the same real client as Autoholic Invoicing",
+    ],
+    tech: ["Next.js 16", "TypeScript", "Three.js", "React Three Fiber", "GSAP", "Tailwind CSS"],
+    github: "https://github.com/HananProjects/Autoholic-Website",
+    live: "https://autoholic-website.vercel.app",
+    accent: "oklch(0.62 0.21 30)",
   },
   {
     id: "project-5",
     slug: "ai-code-review-pipeline",
-    filename: "review_pipeline.py",
+    filename: "ai-code-review-pipeline.py",
     name: "AI Code Review Pipeline",
     period: "2026",
     description:
