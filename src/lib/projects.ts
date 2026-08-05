@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
       "Deployed on Vercel with a hosted Supabase/Postgres backend",
     ],
     tech: ["Next.js 16", "TypeScript", "PostgreSQL", "Supabase", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/HananProjects/KeyHold",
+    github: "https://github.com/HananProjects/Keytrus",
     live: "https://key-hold.vercel.app",
     accent: "oklch(0.65 0.19 340)",
   },
