@@ -20,14 +20,14 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: "project-10",
-    slug: "keyhold",
-    filename: "keyhold.sql",
-    name: "Keyhold — Multi-Tenant Property Management Platform",
+    slug: "keytrus",
+    filename: "keytrus.sql",
+    name: "Keytrus — Multi-Tenant Property Management Platform",
     period: "2026",
     description:
       "Co-founded and built a multi-tenant SaaS property management platform — landlords, tenants, and vendors on one system, with tenant isolation enforced entirely at the database layer via Postgres Row-Level Security. Deployed live on Vercel.",
     longDescription:
-      "Keyhold is a full-stack property management platform, co-founded and built with a fellow University of Saskatchewan Computer Engineering student. Every organization's data — properties, leases, tenants, payments, maintenance requests — is isolated by Postgres Row-Level Security policies keyed off org membership, not application-level filtering, so the database itself is the security boundary. On top of the core landlord workflow (properties, units, tenants, leases, rent payments, expenses, financial reporting) sits a maintenance and vendor-quote system, a tenant portal with messaging and document sharing, and a platform admin panel with cross-org visibility, user/org suspension, and audit logging — all still gated by the same RLS policies rather than a separate admin-only code path. Owner-facing billing enforces plan limits and handles upgrades/downgrades through a service-role client, the one deliberate exception where RLS is bypassed for a table that's revoked from every client role by design. Team members can be invited with per-key permission overrides on top of role defaults, built on a general invitation-acceptance flow. Backed by an automated test suite that exercises real RLS policies and RPCs under different Postgres roles, not just application logic.",
+      "Keytrus is a full-stack property management platform, co-founded and built with a fellow University of Saskatchewan Computer Engineering student. Every organization's data — properties, leases, tenants, payments, maintenance requests — is isolated by Postgres Row-Level Security policies keyed off org membership, not application-level filtering, so the database itself is the security boundary. On top of the core landlord workflow (properties, units, tenants, leases, rent payments, expenses, financial reporting) sits a maintenance and vendor-quote system, a tenant portal with messaging and document sharing, and a platform admin panel with cross-org visibility, user/org suspension, and audit logging — all still gated by the same RLS policies rather than a separate admin-only code path. Owner-facing billing enforces plan limits and handles upgrades/downgrades through a service-role client, the one deliberate exception where RLS is bypassed for a table that's revoked from every client role by design. Team members can be invited with per-key permission overrides on top of role defaults, built on a general invitation-acceptance flow. Backed by an automated test suite that exercises real RLS policies and RPCs under different Postgres roles, not just application logic.",
     highlights: [
       "Multi-tenant isolation enforced by Postgres Row-Level Security, not app-level filtering — the database itself decides what each request can see",
       "Full landlord workflow: properties, units, tenants, leases (auto-generated rent schedules), payments, expenses, and financial reporting",
