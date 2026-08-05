@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Next.js 16", "TypeScript", "PostgreSQL", "Supabase", "Tailwind CSS", "Vercel"],
     github: "https://github.com/HananProjects/Keytrus",
-    live: "https://key-hold.vercel.app",
+    live: "https://key-trus.vercel.app",
     accent: "oklch(0.65 0.19 340)",
   },
   {
