@@ -75,34 +75,72 @@ const CODE_LINES = [
   ],
 ] as { text: string; color: string }[][]
 
-const TECH_STACK = [
+// `projects` lists slugs (from PROJECTS) that actually use this tech, driving
+// the click-to-filter behavior in TechStackSection/ProjectsSection below.
+// Entries with an empty list are declared skills not tied to a featured
+// project and render as non-interactive.
+const TECH_STACK: {
+  name: string
+  color: string
+  icon?: string
+  iconColor?: string
+  projects: string[]
+}[] = [
   // Languages
-  { name: "C",             color: "oklch(0.65 0.15 255)", icon: "c",           href: "https://en.wikipedia.org/wiki/C_(programming_language)" },
-  { name: "C++",           color: "oklch(0.62 0.16 250)", icon: "cplusplus",   href: "https://isocpp.org" },
-  { name: "Python",        color: "oklch(0.72 0.15 250)", icon: "python",      href: "https://python.org" },
-  { name: "Java",          color: "oklch(0.65 0.18 35)",  icon: "java",        href: "https://java.com" },
-  { name: "JavaScript",    color: "oklch(0.80 0.18 90)",  icon: "javascript",  href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { name: "Verilog",       color: "oklch(0.65 0.16 290)",                      href: "https://en.wikipedia.org/wiki/Verilog" },
-  { name: "HTML/CSS",      color: "oklch(0.65 0.18 30)",  icon: "html5",       href: "https://developer.mozilla.org/en-US/docs/Web" },
-  { name: "SQL",           color: "oklch(0.60 0.12 230)",                      href: "https://en.wikipedia.org/wiki/SQL" },
-  // Frameworks & Tools
-  { name: "React",         color: "oklch(0.65 0.18 200)", icon: "react",       href: "https://react.dev" },
-  { name: "Node.js",       color: "oklch(0.65 0.18 150)", icon: "nodedotjs",   href: "https://nodejs.org" },
-  { name: "Next.js",       color: "oklch(0.82 0.02 0)",   icon: "nextdotjs",   href: "https://nextjs.org",         iconColor: "e2e8f0" },
-  { name: "Django",        color: "oklch(0.60 0.15 150)", icon: "django",      href: "https://djangoproject.com",  iconColor: "44b78b" },
-  { name: "Tailwind CSS",  color: "oklch(0.65 0.20 200)", icon: "tailwindcss", href: "https://tailwindcss.com" },
-  { name: "PostgreSQL",    color: "oklch(0.55 0.15 240)", icon: "postgresql",  href: "https://postgresql.org" },
-  { name: "Bash",          color: "oklch(0.70 0.10 150)", icon: "gnubash",     href: "https://gnu.org/software/bash/" },
-  { name: "Git",           color: "oklch(0.65 0.20 25)",  icon: "git",         href: "https://git-scm.com" },
-  { name: "Linux",         color: "oklch(0.72 0.14 75)",  icon: "linux",       href: "https://kernel.org" },
-  { name: "MATLAB",        color: "oklch(0.72 0.18 45)",  icon: "matlab",      href: "https://mathworks.com/products/matlab.html" },
-  { name: "Quartus",       color: "oklch(0.60 0.15 210)",                      href: "https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html" },
-  { name: "ModelSim",      color: "oklch(0.62 0.12 210)",                      href: "https://eda.sw.siemens.com/en-US/ic/modelsim/" },
+  { name: "C++",            color: "oklch(0.62 0.16 250)", icon: "cplusplus",   projects: ["lobengine"] },
+  { name: "Python",         color: "oklch(0.72 0.15 250)", icon: "python",      projects: ["horus", "ai-code-review-pipeline", "asl-translator", "travel-app"] },
+  { name: "TypeScript",     color: "oklch(0.60 0.17 250)", icon: "typescript",  projects: ["keytrus", "fraudguard", "autoholic-invoicing", "autoholic-website"] },
+  { name: "Go",              color: "oklch(0.68 0.16 200)", icon: "go",          projects: ["fraudguard"] },
+  { name: "JavaScript",     color: "oklch(0.80 0.18 90)",  icon: "javascript",  projects: ["nanistack"] },
+  { name: "C",              color: "oklch(0.65 0.15 255)", icon: "c",           projects: [] },
+  { name: "Java",           color: "oklch(0.65 0.18 35)",  icon: "java",        projects: [] },
+  { name: "Verilog",        color: "oklch(0.65 0.16 290)",                      projects: ["microprocessor", "booth-multiplier"] },
+  { name: "SQL",            color: "oklch(0.60 0.12 230)",                      projects: ["travel-app"] },
+  { name: "HTML/CSS",       color: "oklch(0.65 0.18 30)",  icon: "html5",       projects: [] },
+  // Frameworks & Web
+  { name: "Next.js",        color: "oklch(0.82 0.02 0)",   icon: "nextdotjs",   iconColor: "e2e8f0", projects: ["keytrus", "fraudguard", "autoholic-invoicing", "autoholic-website", "kawakraft"] },
+  { name: "React",          color: "oklch(0.65 0.18 200)", icon: "react",       projects: ["horus"] },
+  { name: "Node.js",        color: "oklch(0.65 0.18 150)", icon: "nodedotjs",   projects: ["nanistack"] },
+  { name: "Express",        color: "oklch(0.75 0.02 0)",   icon: "express",     iconColor: "e2e8f0", projects: ["nanistack"] },
+  { name: "Django",         color: "oklch(0.60 0.15 150)", icon: "django",      iconColor: "44b78b", projects: ["kawakraft", "travel-app"] },
+  { name: "FastAPI",        color: "oklch(0.65 0.17 165)", icon: "fastapi",     projects: ["horus", "ai-code-review-pipeline"] },
+  { name: "Tailwind CSS",   color: "oklch(0.65 0.20 200)", icon: "tailwindcss", projects: ["keytrus", "autoholic-website", "kawakraft"] },
+  { name: "Three.js",       color: "oklch(0.75 0.02 0)",   icon: "threedotjs",  iconColor: "e2e8f0", projects: ["autoholic-website", "horus"] },
+  { name: "React Three Fiber", color: "oklch(0.65 0.18 200)",                   projects: ["autoholic-website"] },
+  { name: "GSAP",           color: "oklch(0.70 0.20 145)", icon: "greensock",   projects: ["autoholic-website"] },
+  { name: "WebSockets",     color: "oklch(0.65 0.18 275)",                      projects: ["nanistack", "horus"] },
+  // Data & Infra
+  { name: "PostgreSQL",     color: "oklch(0.55 0.15 240)", icon: "postgresql",  projects: ["keytrus", "kawakraft"] },
+  { name: "SQLite",         color: "oklch(0.60 0.14 230)", icon: "sqlite",      projects: ["autoholic-invoicing"] },
+  { name: "Supabase",       color: "oklch(0.70 0.19 145)", icon: "supabase",    projects: ["keytrus"] },
+  { name: "Docker",         color: "oklch(0.62 0.18 220)", icon: "docker",      projects: ["ai-code-review-pipeline"] },
+  { name: "Terraform",      color: "oklch(0.60 0.20 290)", icon: "terraform",   projects: ["fraudguard"] },
+  { name: "GitHub Actions", color: "oklch(0.75 0.02 0)",   icon: "githubactions", iconColor: "e2e8f0", projects: ["fraudguard", "kawakraft"] },
+  { name: "Vercel",         color: "oklch(0.85 0.01 0)",   icon: "vercel",      iconColor: "e2e8f0", projects: ["keytrus", "autoholic-website"] },
+  { name: "Railway",        color: "oklch(0.70 0.15 320)",                      projects: ["autoholic-invoicing"] },
+  { name: "Azure",          color: "oklch(0.60 0.16 240)", icon: "microsoftazure", projects: ["fraudguard"] },
+  { name: "GCP Cloud Run",  color: "oklch(0.68 0.16 230)", icon: "googlecloud", projects: ["ai-code-review-pipeline"] },
+  // AI / ML
+  { name: "Claude API",     color: "oklch(0.65 0.15 45)",  icon: "anthropic",   projects: ["horus", "ai-code-review-pipeline"] },
+  { name: "CrewAI",         color: "oklch(0.65 0.17 25)",                       projects: ["ai-code-review-pipeline"] },
+  { name: "OpenAI Whisper", color: "oklch(0.75 0.02 0)",   icon: "openai",      iconColor: "e2e8f0", projects: ["horus"] },
+  { name: "ChromaDB",       color: "oklch(0.65 0.18 155)",                      projects: ["horus"] },
+  { name: "Ollama",         color: "oklch(0.75 0.02 0)",   icon: "ollama",      iconColor: "e2e8f0", projects: ["nanistack"] },
+  { name: "MediaPipe",      color: "oklch(0.65 0.17 200)",                      projects: ["asl-translator"] },
+  // Tools & Systems
+  { name: "CMake",          color: "oklch(0.62 0.10 230)", icon: "cmake",       projects: ["lobengine"] },
+  { name: "GoogleTest",     color: "oklch(0.65 0.15 15)",                       projects: ["lobengine"] },
+  { name: "Bash",           color: "oklch(0.70 0.10 150)", icon: "gnubash",     projects: [] },
+  { name: "Git",            color: "oklch(0.65 0.20 25)",  icon: "git",         projects: [] },
+  { name: "Linux",          color: "oklch(0.72 0.14 75)",  icon: "linux",       projects: ["lobengine"] },
+  { name: "MATLAB",         color: "oklch(0.72 0.18 45)",  icon: "matlab",      projects: [] },
+  { name: "Quartus",        color: "oklch(0.60 0.15 210)",                      projects: ["microprocessor", "booth-multiplier"] },
+  { name: "ModelSim",       color: "oklch(0.62 0.12 210)",                      projects: ["microprocessor", "booth-multiplier"] },
   // Hardware & Embedded
-  { name: "Raspberry Pi",  color: "oklch(0.62 0.20 15)",  icon: "raspberrypi", href: "https://raspberrypi.com" },
-  { name: "Arduino",       color: "oklch(0.60 0.16 180)", icon: "arduino",     href: "https://arduino.cc" },
-  { name: "ARM MCUs",      color: "oklch(0.65 0.15 220)", icon: "arm",         href: "https://arm.com" },
-  { name: "FPGA (Intel)",  color: "oklch(0.60 0.18 310)", icon: "intel",       href: "https://www.intel.com/content/www/us/en/products/details/fpga.html" },
+  { name: "Raspberry Pi",   color: "oklch(0.62 0.20 15)",  icon: "raspberrypi", projects: ["nanistack", "asl-translator"] },
+  { name: "Arduino",        color: "oklch(0.60 0.16 180)", icon: "arduino",     projects: [] },
+  { name: "ARM MCUs",       color: "oklch(0.65 0.15 220)", icon: "arm",         projects: [] },
+  { name: "FPGA (Intel)",   color: "oklch(0.60 0.18 310)", icon: "intel",       projects: ["microprocessor", "booth-multiplier"] },
 ]
 
 
@@ -509,7 +547,13 @@ function HeroSection({ onNavigate }: { onNavigate: (id: string) => void }) {
 }
 
 
-function TechStackSection() {
+function TechStackSection({
+  selected,
+  onToggle,
+}: {
+  selected: string[]
+  onToggle: (name: string) => void
+}) {
   return (
     <section id="stack" className="px-6 py-28">
       <div className="max-w-2xl mx-auto">
@@ -521,6 +565,9 @@ function TechStackSection() {
         >
           <SectionHeader label="tech_stack.ts" />
         </motion.div>
+        <p className="font-mono text-xs text-muted-foreground/50 mb-4 -mt-4">
+          click a tech (or a few) to filter the projects below that use it
+        </p>
         <motion.div
           className="grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-2"
           variants={{ show: { transition: { staggerChildren: 0.04 } } }}
@@ -528,41 +575,71 @@ function TechStackSection() {
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {TECH_STACK.map((tech) => (
-            <motion.a
-              key={tech.name}
-              href={tech.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={{
-                hidden: { opacity: 0, scale: 0.85 },
-                show: { opacity: 1, scale: 1, transition: { duration: 0.2 } },
-              }}
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.12 }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-[oklch(0.12_0.01_220)] font-mono text-sm cursor-pointer hover:border-border/80 hover:text-foreground transition-colors duration-150"
-            >
-              {tech.icon ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={`https://cdn.simpleicons.org/${tech.icon}${tech.iconColor ? `/${tech.iconColor}` : ""}`}
-                  alt=""
-                  className="w-4 h-4 shrink-0"
-                />
-              ) : (
-                <span style={{ color: tech.color }}>◆</span>
-              )}
-              <span className="text-muted-foreground">{tech.name}</span>
-            </motion.a>
-          ))}
+          {TECH_STACK.map((tech) => {
+            const isFilterable = tech.projects.length > 0
+            const isActive = selected.includes(tech.name)
+            return (
+              <motion.button
+                key={tech.name}
+                type="button"
+                disabled={!isFilterable}
+                onClick={() => onToggle(tech.name)}
+                title={isFilterable ? undefined : "not tied to a featured project yet"}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  show: { opacity: 1, scale: 1, transition: { duration: 0.2 } },
+                }}
+                whileHover={isFilterable ? { scale: 1.04 } : undefined}
+                transition={{ duration: 0.12 }}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-1.5 rounded-md border font-mono text-sm transition-colors duration-150",
+                  isFilterable ? "cursor-pointer" : "cursor-default opacity-45",
+                  isActive
+                    ? "border-primary/60 bg-primary/10"
+                    : "border-border bg-[oklch(0.12_0.01_220)] hover:border-border/80 hover:text-foreground",
+                )}
+              >
+                {tech.icon ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={`https://cdn.simpleicons.org/${tech.icon}${tech.iconColor ? `/${tech.iconColor}` : ""}`}
+                    alt=""
+                    className="w-4 h-4 shrink-0"
+                  />
+                ) : (
+                  <span style={{ color: tech.color }}>◆</span>
+                )}
+                <span className={cn(isActive ? "text-foreground" : "text-muted-foreground", "flex-1 text-left")}>
+                  {tech.name}
+                </span>
+                {isFilterable && (
+                  <span className="text-[10px] text-muted-foreground/40">{tech.projects.length}</span>
+                )}
+              </motion.button>
+            )
+          })}
         </motion.div>
       </div>
     </section>
   )
 }
 
-function ProjectsSection() {
+function ProjectsSection({
+  selected,
+  onToggle,
+  onClear,
+}: {
+  selected: string[]
+  onToggle: (name: string) => void
+  onClear: () => void
+}) {
   const router = useRouter()
+
+  const visibleSlugs =
+    selected.length === 0
+      ? null
+      : new Set(TECH_STACK.filter((t) => selected.includes(t.name)).flatMap((t) => t.projects))
+  const visibleCount = visibleSlugs === null ? PROJECTS.length : PROJECTS.filter((p) => visibleSlugs.has(p.slug)).length
 
   return (
     <section id="projects-section" className="px-6 py-28">
@@ -575,9 +652,43 @@ function ProjectsSection() {
         >
           <SectionHeader label="projects/" />
         </motion.div>
+
+        {selected.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 mb-6 -mt-2 font-mono text-xs">
+            <span className="text-muted-foreground/60">
+              showing {visibleCount} of {PROJECTS.length} · filtered by
+            </span>
+            {selected.map((name) => (
+              <button
+                key={name}
+                type="button"
+                onClick={() => onToggle(name)}
+                className="flex items-center gap-1 px-2 py-0.5 rounded border border-primary/40 bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-150"
+              >
+                {name} <span className="text-primary/60">×</span>
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={onClear}
+              className="text-muted-foreground/50 hover:text-foreground underline underline-offset-2 transition-colors duration-150"
+            >
+              clear
+            </button>
+          </div>
+        )}
+
+        {visibleCount === 0 && (
+          <p className="font-mono text-sm text-muted-foreground/60 py-10 text-center">
+            no projects match this filter — try clearing it
+          </p>
+        )}
+
         <div className="space-y-4">
-          {PROJECTS.map((project, i) => (
-            <div key={project.id} id={project.id}>
+          {PROJECTS.map((project, i) => {
+            const isVisible = visibleSlugs === null || visibleSlugs.has(project.slug)
+            return (
+            <div key={project.id} id={project.id} className={isVisible ? undefined : "hidden"}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -643,7 +754,8 @@ function ProjectsSection() {
                 </WindowChrome>
               </motion.div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
@@ -666,8 +778,12 @@ function Footer() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const PROJECT_IDS = new Set(PROJECTS.map((p) => p.id))
+
 export default function Home() {
   const [activeId, setActiveId] = useState("hero")
+  const [selectedTech, setSelectedTech] = useState<string[]>([])
+  const [pendingScrollId, setPendingScrollId] = useState<string | null>(null)
   const mainRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -688,7 +804,28 @@ export default function Home() {
     return () => observers.forEach((o) => o?.disconnect())
   }, [])
 
+  // A project jumped to via the sidebar might be hidden behind an active
+  // tech filter — the filter gets cleared first, and once that re-render
+  // lands (making the target visible again) this scrolls to it.
+  useEffect(() => {
+    if (!pendingScrollId) return
+    const el = mainRef.current?.querySelector(`#${pendingScrollId}`)
+    el?.scrollIntoView({ behavior: "smooth" })
+    setPendingScrollId(null)
+  }, [selectedTech, pendingScrollId])
+
+  const toggleTech = (name: string) => {
+    setSelectedTech((prev) => (prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name]))
+  }
+  const clearTech = () => setSelectedTech([])
+
   const handleFileClick = (id: string) => {
+    if (PROJECT_IDS.has(id) && selectedTech.length > 0) {
+      setSelectedTech([])
+      setPendingScrollId(id)
+      setActiveId(id)
+      return
+    }
     const el = mainRef.current?.querySelector(`#${id}`)
     if (el) {
       el.scrollIntoView({ behavior: "smooth" })
@@ -757,8 +894,8 @@ export default function Home() {
       {/* Content */}
       <main ref={mainRef} className="flex-1 overflow-y-auto rounded-xl border border-border/40 bg-[oklch(0.10_0.01_220)] shadow-lg shadow-black/20">
         <HeroSection onNavigate={handleFileClick} />
-        <TechStackSection />
-        <ProjectsSection />
+        <TechStackSection selected={selectedTech} onToggle={toggleTech} />
+        <ProjectsSection selected={selectedTech} onToggle={toggleTech} onClear={clearTech} />
         <Footer />
       </main>
     </div>
