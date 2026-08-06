@@ -19,6 +19,31 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "project-12",
+    slug: "lobengine",
+    filename: "lobengine.cpp",
+    name: "LOBEngine — Low-Latency Limit Order Book & Matching Engine",
+    period: "2026",
+    description:
+      "C++20 limit order book and matching engine built to production-grade low-latency standards — zero-allocation hot path, a TSan-verified lock-free ring buffer, and a full simulated exchange wired together over real loopback UDP with measured, honestly-reported latency.",
+    longDescription:
+      "LOBEngine is a systems-programming portfolio project built for quantitative trading and market-making firm applications, implementing a price-time-priority limit order book and matching engine from scratch in C++20. The order book and matcher run on a zero-allocation hot path backed by a custom ObjectPool, with a lock-free SPSC ring buffer verified race-free under ThreadSanitizer for inter-thread order flow. On top of the core engine sits a full simulated exchange — a gateway, a matching loop, a market-data publisher, and a market-maker client — each running as a real OS thread and communicating over real loopback UDP using hand-rolled FIX-lite and ITCH-lite wire protocols, rather than being simulated in-process. The project is backed by 70 tests under GoogleTest plus ASan/UBSan/TSan sanitizer builds across a CMake + Ninja build system, and reports real measured latency numbers rather than idealized ones: ~230-280ns p50 for an in-process order-to-match, and ~84-92μs p50 wire-to-fill end-to-end through the full exchange stack. Originally started on Apple Silicon, it also builds on Windows via a WSL2 Ubuntu 24.04 toolchain, which is where the current latency numbers were measured.",
+    highlights: [
+      "Price-time-priority limit order book and matching engine, implemented from scratch in C++20",
+      "Zero-allocation hot path via a custom ObjectPool — no heap allocation while matching orders",
+      "Lock-free SPSC ring buffer for inter-thread order flow, verified race-free under ThreadSanitizer",
+      "Hand-rolled FIX-lite and ITCH-lite wire protocols for order entry and market-data dissemination",
+      "Full simulated exchange — gateway, matching loop, market-data publisher, and market-maker client — running as real threads over real loopback UDP, not simulated in-process",
+      "70 tests under GoogleTest, plus ASan/UBSan/TSan sanitizer builds across a CMake + Ninja build system",
+      "Real measured latency, honestly reported: ~230-280ns p50 in-process order-to-match, ~84-92μs p50 wire-to-fill end-to-end",
+      "Cross-platform: originally built on Apple Silicon, also builds on Windows via a WSL2 Ubuntu 24.04 toolchain",
+    ],
+    tech: ["C++20", "CMake", "Ninja", "GoogleTest", "Lock-Free SPSC", "UDP Networking", "Linux"],
+    github: "https://github.com/HananProjects/LOBEngine",
+    live: "#",
+    accent: "oklch(0.65 0.17 175)",
+  },
+  {
     id: "project-10",
     slug: "keytrus",
     filename: "keytrus.sql",
