@@ -125,6 +125,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {/* Overview */}
             <div>
               <SectionDivider label="overview" />
+              {project.logo && (
+                <div className="mb-5 flex items-center justify-center rounded-md border border-[oklch(0.22_0.02_220)] bg-[oklch(0.09_0.01_220)] px-6 py-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                    className="h-10 sm:h-14 w-auto max-w-full"
+                  />
+                </div>
+              )}
               <p className="text-sm text-[oklch(0.48_0.03_220)] leading-relaxed">
                 {project.longDescription}
               </p>
