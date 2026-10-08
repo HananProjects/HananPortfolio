@@ -9,6 +9,7 @@ export type Project = {
   highlights: string[]
   tech: string[]
   images?: string[]
+  logo?: string
   paper?: string
   results?: { value: string; label: string }[]
   resultsNote?: string
@@ -22,12 +23,13 @@ export const PROJECTS: Project[] = [
     id: "project-15",
     slug: "munova",
     filename: "munova.tsx",
-    name: "Munova — Software Design Business & Website",
+    name: "Munova — Custom Software & AI for Businesses",
     period: "2026",
+    logo: "/projects/munova/logo.png",
     description:
-      "The business I run client software work through, and its public website: a motion-driven Next.js marketing site for custom software, AI automation, AI phone agents, dashboards and support, with a full SEO build and a working contact form. Live at munovasolutions.ca.",
+      "Munova Solutions is my Saskatoon company building custom software and AI for businesses: web apps, internal tools, AI phone agents and automation. This is its public website, a motion-driven Next.js site with a full SEO build and a working contact form, live at munovasolutions.ca.",
     longDescription:
-      "Munova is the software design business I build and bill client work through: web apps, AI-powered automation, AI phone agents, business dashboards and ongoing support. The website is a Next.js 16 and Tailwind v4 site with a full-screen logo hero whose accent triangle flips on a timer, Lenis smooth scrolling, and a scroll-linked process timeline where a coral marker rides a gradient rail and each of four steps lights up with its own CSS mini-scene. A looping illustrated phone-call demo, clearly labelled as an example, shows what an AI receptionist call looks like without making any client claims. Search was planned as a build, not an afterthought: a services hub plus five service pages driven from one content file, per-page canonical and Open Graph metadata, ProfessionalService, Service and BreadcrumbList JSON-LD, a generated Open Graph image from the real logo, a sitemap, and a permanent redirect from www to the apex domain after finding www was serving a duplicate site. The contact form is a server action that validates input, silently drops honeypot hits, and sends the enquiry through Resend over plain fetch with a domain-verified sender, storing nothing on the site. Every animation honours prefers-reduced-motion, content is visible without JavaScript, and the site was checked at desktop and 390px mobile widths for overflow and console errors.",
+      "Munova Solutions is the company I run client work through, based in Saskatoon. It builds custom web apps and internal tools, AI automation, AI phone agents, business dashboards and ongoing support, working with a client from the first call through launch. The website is a Next.js 16 and Tailwind v4 site with a full-screen logo hero whose accent triangle flips on a timer, Lenis smooth scrolling, and a scroll-linked process timeline where a coral marker rides a gradient rail and each of four steps lights up with its own CSS mini-scene. A looping illustrated phone-call demo, clearly labelled as an example, shows what an AI receptionist call looks like without making any client claims. Search was planned as a build, not an afterthought: a services hub plus five service pages driven from one content file, per-page canonical and Open Graph metadata, ProfessionalService, Service and BreadcrumbList JSON-LD, a generated Open Graph image from the real logo, a sitemap, and a permanent redirect from www to the apex domain after finding www was serving a duplicate site. The contact form is a server action that validates input, silently drops honeypot hits, and sends the enquiry through Resend over plain fetch with a domain-verified sender, storing nothing on the site. Every animation honours prefers-reduced-motion, content is visible without JavaScript, and the site was checked at desktop and 390px mobile widths for overflow and console errors.",
     highlights: [
       "Live at munovasolutions.ca on Vercel with GitHub auto-deploy, custom domain, and a Google Workspace mailbox on the same domain",
       "Scroll-linked process timeline with per-step CSS mini-scenes, plus a looping illustrated AI phone-call demo labelled as an example",
@@ -39,29 +41,6 @@ export const PROJECTS: Project[] = [
     github: "#",
     live: "https://munovasolutions.ca",
     accent: "oklch(0.72 0.14 160)",
-  },
-  {
-    id: "project-17",
-    slug: "qazifleet",
-    filename: "qazifleet.tsx",
-    name: "QaziFleet — Family Vehicle & Maintenance Tracker",
-    period: "2026",
-    description:
-      "Private vehicle and maintenance tracker for my family, running on a Raspberry Pi on the home network: service reminders by kilometres and months, fuel log, to-dos, and a requests inbox with optional phone push notifications.",
-    longDescription:
-      "QaziFleet is a self-hosted Next.js app that replaces a mix of reminders and memory for keeping the family's vehicles maintained. Each vehicle has maintenance records checked against per-service-type intervals in both kilometres and months, a to-do list, a fuel log, and a requests panel where family members can ask for something to be looked at; new requests can push a notification through ntfy.sh with no account needed. A dashboard surfaces a Needs Attention list of overdue and upcoming items. Data lives in a single SQLite file accessed with raw SQL through better-sqlite3 and no ORM, and there is deliberately no login because the app is only reachable on the trusted home network. It runs as an always-on systemd service on a Raspberry Pi. Two real deployment problems shaped it: better-sqlite3 13.x segfaulted on the Pi's ARM64 Node 20, so it is pinned to 12.11.1, and a header-encoding bug in the ntfy push was found and fixed after it broke live notifications. The interface is a deliberate dark-first dashboard with a single accent colour kept separate from the status colours, monospaced figures for odometer and cost data, and Framer Motion for animated tab and nav indicators.",
-    highlights: [
-      "Maintenance reminders computed from per-service-type intervals in both kilometres and months, with a dashboard Needs Attention list",
-      "Per-vehicle tabs for maintenance, to-dos, requests and fuel, plus a shared family roster",
-      "Optional push notifications through ntfy.sh when a family member submits a request",
-      "Raw SQL on SQLite with better-sqlite3 and no ORM; pinned to 12.11.1 after 13.x segfaulted on the Pi's ARM64 Node 20",
-      "Always-on systemd service on a Raspberry Pi, LAN-only by design with no accounts",
-      "Dark-first design system: single accent colour separate from status colours, monospaced numerics, Framer Motion layout animations",
-    ],
-    tech: ["Next.js 16", "TypeScript", "SQLite", "Tailwind CSS", "Framer Motion", "Raspberry Pi", "systemd"],
-    github: "#",
-    live: "#",
-    accent: "oklch(0.65 0.17 285)",
   },
   {
     id: "project-16",
