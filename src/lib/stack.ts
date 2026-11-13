@@ -12,7 +12,7 @@ export type Tech = {
 
 export const TECH_STACK: Tech[] = [
   // Languages
-  { name: "TypeScript", group: "Languages", projects: ["munova", "evergreen-essence", "kawakraft", "keytrus", "fraudguard", "autoholic-invoicing", "autoholic-website"] },
+  { name: "TypeScript", group: "Languages", projects: ["munova", "evergreen-essence", "kawakraft", "fraudguard", "autoholic-invoicing", "autoholic-website"] },
   { name: "Python", group: "Languages", projects: ["motion-fitness-ai-caller", "motion-fitness-accounting-dashboard", "horus", "ai-code-review-pipeline", "asl-translator", "travel-app"] },
   { name: "C++", group: "Languages", projects: ["lobengine"] },
   { name: "Go", group: "Languages", projects: ["fraudguard"] },
@@ -22,9 +22,9 @@ export const TECH_STACK: Tech[] = [
   { name: "C", group: "Languages", projects: [] },
   { name: "Java", group: "Languages", projects: [] },
   // Frameworks & web
-  { name: "Next.js", group: "Frameworks", projects: ["munova", "evergreen-essence", "keytrus", "fraudguard", "autoholic-invoicing", "autoholic-website", "kawakraft"] },
+  { name: "Next.js", group: "Frameworks", projects: ["munova", "evergreen-essence", "fraudguard", "autoholic-invoicing", "autoholic-website", "kawakraft"] },
   { name: "React", group: "Frameworks", projects: ["horus"] },
-  { name: "Tailwind CSS", group: "Frameworks", projects: ["munova", "evergreen-essence", "keytrus", "autoholic-website", "kawakraft"] },
+  { name: "Tailwind CSS", group: "Frameworks", projects: ["munova", "evergreen-essence", "autoholic-website", "kawakraft"] },
   { name: "Node.js", group: "Frameworks", projects: ["nanistack"] },
   { name: "Express", group: "Frameworks", projects: ["nanistack"] },
   { name: "FastAPI", group: "Frameworks", projects: ["horus", "ai-code-review-pipeline"] },
@@ -36,16 +36,16 @@ export const TECH_STACK: Tech[] = [
   { name: "Framer Motion", group: "Frameworks", projects: ["evergreen-essence"] },
   { name: "WebSockets", group: "Frameworks", projects: ["nanistack", "horus"] },
   // Data & cloud
-  { name: "PostgreSQL", group: "Data & Cloud", projects: ["motion-fitness-ai-caller", "keytrus", "kawakraft"] },
+  { name: "PostgreSQL", group: "Data & Cloud", projects: ["motion-fitness-ai-caller", "kawakraft"] },
   { name: "SQLite", group: "Data & Cloud", projects: ["autoholic-invoicing", "motion-fitness-accounting-dashboard", "kawakraft"] },
-  { name: "Supabase", group: "Data & Cloud", projects: ["keytrus"] },
+  { name: "Supabase", group: "Data & Cloud", projects: [] },
   { name: "Docker", group: "Data & Cloud", projects: ["motion-fitness-ai-caller", "ai-code-review-pipeline"] },
   { name: "Terraform", group: "Data & Cloud", projects: ["fraudguard"] },
   { name: "GitHub Actions", group: "Data & Cloud", projects: ["fraudguard"] },
   { name: "Azure", group: "Data & Cloud", projects: ["fraudguard"] },
   { name: "GCP Cloud Run", group: "Data & Cloud", projects: ["ai-code-review-pipeline"] },
   { name: "AWS Lightsail", group: "Data & Cloud", projects: ["motion-fitness-ai-caller"] },
-  { name: "Vercel", group: "Data & Cloud", projects: ["munova", "evergreen-essence", "keytrus", "autoholic-website"] },
+  { name: "Vercel", group: "Data & Cloud", projects: ["munova", "evergreen-essence", "autoholic-website"] },
   { name: "Railway", group: "Data & Cloud", projects: ["autoholic-invoicing"] },
   // AI
   { name: "Claude API", group: "AI", projects: ["motion-fitness-ai-caller", "motion-fitness-accounting-dashboard", "nanistack", "horus", "ai-code-review-pipeline"] },

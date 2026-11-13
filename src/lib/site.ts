@@ -5,7 +5,7 @@ export const PROFILE = {
   firstName: "Hanan",
   role: "Computer Engineer & Founder",
   location: "Saskatoon, SK",
-  email: "hanan.hussain@usask.ca",
+  email: "hanan@hananhussain.com",
   phone: "306-444-1025",
   phoneHref: "tel:3064441025",
   linkedin: "https://linkedin.com/in/hananhussain1",
@@ -23,7 +23,7 @@ export const ABOUT_TEXT =
 
 export const ABOUT_BADGES = [
   { kicker: "Founder", title: "Munova Solutions" },
-  { kicker: "Co-founder", title: "Keytrus" },
+  { kicker: "Specialty", title: "AI Voice Agents" },
   { kicker: "B.Sc. Computer Eng.", title: "USask, 2026" },
   { kicker: "Based in", title: "Saskatoon, SK" },
 ]
@@ -32,7 +32,7 @@ export const SERVICES = [
   {
     name: "Web Apps & Platforms",
     description:
-      "Full-stack products with real auth, data and billing: multi-tenant SaaS on Postgres Row-Level Security, invoicing systems in daily use, and dashboards shaped around how a business actually works.",
+      "Full-stack products with real auth, data and billing: invoicing systems in daily use, bookkeeping tools, and dashboards shaped around how a business actually works.",
   },
   {
     name: "AI Agents & Voice",
@@ -132,20 +132,6 @@ export const FEATURED: Featured[] = [
         kind: "flow",
         title: "Simulated exchange",
         steps: ["Gateway · FIX-lite", "Lock-free SPSC ring", "Matching engine", "Market data · ITCH-lite", "Market-maker client"],
-      },
-    ],
-  },
-  {
-    slug: "keytrus",
-    category: "Co-founder · SaaS",
-    title: "Keytrus",
-    tiles: [
-      { kind: "stat", value: "RLS", label: "tenant isolation enforced by Postgres itself" },
-      { kind: "stat", value: "4", label: "roles on one platform: landlords, tenants, vendors, admins" },
-      {
-        kind: "flow",
-        title: "Landlord workflow",
-        steps: ["Properties & units", "Leases & rent schedules", "Payments & expenses", "Maintenance & vendor quotes", "Tenant portal"],
       },
     ],
   },

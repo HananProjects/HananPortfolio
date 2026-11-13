@@ -29,7 +29,7 @@ export function Work() {
       </FadeIn>
       <FadeIn delay={0.1}>
         <p className="mx-auto mt-6 max-w-md text-center text-sm font-light uppercase tracking-widest text-mist/60 sm:text-base">
-          Five builds I&apos;m proudest of. The full list is further down.
+          Four builds I&apos;m proudest of. The full list is further down.
         </p>
       </FadeIn>
 
