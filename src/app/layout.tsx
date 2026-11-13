@@ -1,44 +1,46 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Kanit } from "next/font/google"
 import "./globals.css"
+import { SmoothScroll } from "@/components/ui/SmoothScroll"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const kanit = Kanit({
+  variable: "--font-kanit",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+const description =
+  "Hanan Hussain is a Computer Engineering graduate (USask) and founder of Munova, building web platforms, AI voice agents, cloud systems and hardware from Saskatoon."
 
 export const metadata: Metadata = {
-  title: "Hanan Hussain — Portfolio",
-  description: "Computer Engineering graduate (USask). Building across the full stack — from web apps to real-time embedded systems on Raspberry Pi and FPGA.",
+  metadataBase: new URL("https://hanan-portfolio-xi.vercel.app"),
+  title: "Hanan Hussain — Computer Engineer & Founder",
+  description,
   openGraph: {
-    title: "Hanan Hussain — Portfolio",
-    description: "Computer Engineering graduate (USask). Building across the full stack — from web apps to real-time embedded systems on Raspberry Pi and FPGA.",
+    title: "Hanan Hussain — Computer Engineer & Founder",
+    description,
     type: "website",
+    images: ["/profile.jpg"],
   },
   twitter: {
-    card: "summary",
-    title: "Hanan Hussain — Portfolio",
-    description: "Computer Engineering graduate (USask). Building across the full stack — from web apps to real-time embedded systems.",
+    card: "summary_large_image",
+    title: "Hanan Hussain — Computer Engineer & Founder",
+    description,
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#0C0C0C",
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html lang="en" className={kanit.variable}>
+      <body>
+        <SmoothScroll />
         {children}
+        <div aria-hidden className="grain" />
       </body>
     </html>
   )
