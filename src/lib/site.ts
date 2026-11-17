@@ -12,7 +12,7 @@ export const PROFILE = {
   linkedinLabel: "linkedin.com/in/hananhussain1",
   github: "https://github.com/HananProjects",
   resume: "/resume.pdf",
-  portrait: "/profile.jpg",
+  portrait: "/avatar.webp",
 }
 
 export const HERO_TAGLINE =

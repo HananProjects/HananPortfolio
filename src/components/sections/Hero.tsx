@@ -55,8 +55,8 @@ export function Hero() {
             <img
               src={PROFILE.portrait}
               alt={`Portrait of ${PROFILE.name}`}
-              width={1024}
-              height={1536}
+              width={864}
+              height={1152}
               fetchPriority="high"
               className="portrait-mask pointer-events-none h-auto w-full select-none"
             />
