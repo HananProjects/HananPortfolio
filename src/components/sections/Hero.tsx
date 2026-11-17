@@ -1,5 +1,4 @@
 import { FadeIn } from "@/components/ui/FadeIn"
-import { Magnet } from "@/components/ui/Magnet"
 import { ContactButton } from "@/components/ui/Buttons"
 import { HERO_TAGLINE, PROFILE } from "@/lib/site"
 
@@ -50,17 +49,15 @@ export function Hero() {
 
       <div className="absolute left-1/2 top-1/2 z-10 w-[260px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[340px] sm:translate-y-0 md:w-[400px] lg:w-[460px]">
         <FadeIn delay={0.6} y={30}>
-          <Magnet padding={150} strength={3}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={PROFILE.portrait}
-              alt={`Portrait of ${PROFILE.name}`}
-              width={864}
-              height={1152}
-              fetchPriority="high"
-              className="portrait-mask pointer-events-none h-auto w-full select-none"
-            />
-          </Magnet>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={PROFILE.portrait}
+            alt={`Portrait of ${PROFILE.name}`}
+            width={864}
+            height={1152}
+            fetchPriority="high"
+            className="portrait-mask pointer-events-none h-auto w-full select-none"
+          />
         </FadeIn>
       </div>
     </section>

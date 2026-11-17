@@ -11,7 +11,7 @@ const kanit = Kanit({
 })
 
 const description =
-  "Hanan Hussain is a Computer Engineering graduate (USask) and founder of Munova, building web platforms, AI voice agents, cloud systems and hardware from Saskatoon."
+  "Hanan Hussain is a Computer Engineering graduate (USask) and founder of Munova, building web platforms, AI voice agents, cloud systems and hardware across Saskatchewan and Alberta."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hanan-portfolio-xi.vercel.app"),
