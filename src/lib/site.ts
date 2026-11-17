@@ -4,7 +4,7 @@ export const PROFILE = {
   name: "Hanan Hussain",
   firstName: "Hanan",
   role: "Computer Engineer & Founder",
-  location: "Saskatoon, SK",
+  location: "Saskatchewan & Alberta, Canada",
   email: "hanan@hananhussain.com",
   phone: "306-444-1025",
   phoneHref: "tel:3064441025",
@@ -25,7 +25,7 @@ export const ABOUT_BADGES = [
   { kicker: "Founder", title: "Munova Solutions" },
   { kicker: "Specialty", title: "AI Voice Agents" },
   { kicker: "B.Sc. Computer Eng.", title: "USask, 2026" },
-  { kicker: "Based in", title: "Saskatoon, SK" },
+  { kicker: "Working across", title: "SK & AB, Canada" },
 ]
 
 export const SERVICES = [
@@ -37,7 +37,7 @@ export const SERVICES = [
   {
     name: "AI Agents & Voice",
     description:
-      "AI phone receptionists, outbound callers and agent systems on Claude, LiveKit and local models, with guardrails, failover to a human, and per-call costs that are measured rather than guessed.",
+      "AI phone receptionists, outbound callers and agent systems built on hosted and local LLMs with real-time speech pipelines, with guardrails, failover to a human, and per-call costs that are measured rather than guessed.",
   },
   {
     name: "Cloud & Infrastructure",
